@@ -6,12 +6,12 @@ import { SearchComponent } from './search.component';
 const routes: Routes = [
     {
         path: '',
-        component: SearchComponent,
-    },
+        component: SearchComponent
+    }
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
-    exports: [],
+    exports: []
 })
 export class SearchRoutingModule { }

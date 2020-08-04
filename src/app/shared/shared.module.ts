@@ -4,20 +4,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 // import { GoBackComponent } from './components/go-back/go-back.component';
 
-const UX_COMPONENTS: any[] = [UxHeaderComponent];
+const UX_COMPONENTS: any[] = [
+    UxHeaderComponent
     // GoBackComponent
+];
 
 const UX_MODULES: any[] = [
-  MatButtonModule,
-  MatCardModule,
-  MatInputModule,
-  MatToolbarModule,
-  ReactiveFormsModule,
-  RouterModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    RouterModule
 ];
 
 @NgModule({
