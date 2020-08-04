@@ -1,15 +1,17 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import {
     HttpClientTestingModule,
     HttpTestingController,
 } from '@angular/common/http/testing';
+import { HttpErrorResponse } from '@angular/common/http';
 import { SearchService } from './search.service';
-import { environment } from 'src/environments/environment';
+
+const mockSearchTerm = 'asd';
+const mockSearchUrl = 'https://itunes.apple.com/search?term=' + mockSearchTerm;
 
 describe('SearchService', () => {
     let httpTestingController: HttpTestingController;
     let service: SearchService;
-    const apiUrl = environment.apiUrl;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -28,5 +30,45 @@ describe('SearchService', () => {
 
     it('should be created', () => {
         expect(service).toBeTruthy();
+    });
+
+    // Test HTTP request errors
+    it('should return an error when there is a network error', () => {
+        const errorMsg = 'simulated network error';
+
+        service.getITunesResults(mockSearchTerm).subscribe(
+            data => fail('should have failed with the network error'),
+            (error: HttpErrorResponse) => {
+                expect(error.error.message).toEqual(errorMsg, 'message');
+            }
+        );
+
+        const req = httpTestingController.expectOne(mockSearchUrl);
+
+        // Create mock ErrorEvent, raised when something goes wrong at the network level.
+        // Connection timeout, DNS error, offline, etc
+        const mockError = new ErrorEvent('Network error', {
+            message: errorMsg,
+        });
+
+        // Respond with mock error
+        req.error(mockError);
+    });
+
+    it('should return a 404 status when there is a not found error', () => {
+        const emsg = 'deliberate 404 error';
+
+        service.getITunesResults(mockSearchTerm).subscribe(
+            data => fail('should have failed with the 404 error'),
+            (error: HttpErrorResponse) => {
+                expect(error.status).toEqual(404, 'status');
+                expect(error.error).toEqual(emsg, 'message');
+            }
+        );
+
+        const req = httpTestingController.expectOne(mockSearchUrl);
+
+        // Respond with mock error
+        req.flush(emsg, { status: 404, statusText: 'Not Found' });
     });
 });
