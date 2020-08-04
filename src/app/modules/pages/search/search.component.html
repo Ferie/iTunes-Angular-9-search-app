@@ -1,18 +1,65 @@
 <h1>Search</h1>
-<div>
-  <mat-card class="m-auto search-card">
+
+<mat-card class="m-auto search-card">
     <mat-card-content>
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Search</mat-label>
-        <input matInput placeholder="Search..." [formControl]="searchControl" />
-      </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>iTunes Search</mat-label>
+            <input
+                matInput
+                placeholder="Search for something..."
+                [formControl]="searchControl"
+            >
+        </mat-form-field>
     </mat-card-content>
 
     <mat-card-actions>
-      <div class="flex-spacer"></div>
-      <button mat-raised-button color="primary" [disabled]="searchControl.invalid">
-        Search
-      </button>
+        <div class="flex-spacer"></div>
+        <button
+            mat-raised-button
+            color="primary"
+            [disabled]="searchControl.invalid"
+            (click)="iTunesSearch(searchControl.value)"
+        >
+            Search iTunes
+        </button>
     </mat-card-actions>
-  </mat-card>
-</div>
+</mat-card>
+
+<ng-container *ngFor="let result of results">
+    <div class="result">
+        {{ result.wrapperType }}
+        {{ result.kind }}
+        {{ result.artistId }}
+        {{ result.collectionId }}
+        {{ result.trackId }}
+        {{ result.artistName }}
+        {{ result.collectionName }}
+        {{ result.trackName }}
+        {{ result.collectionCensoredName }}
+        {{ result.trackCensoredName }}
+        {{ result.artistViewUrl }}
+        {{ result.collectionViewUrl }}
+        {{ result.feedUrl }}
+        {{ result.trackViewUrl }}
+        {{ result.artworkUrl30 }}
+        {{ result.artworkUrl60 }}
+        {{ result.artworkUrl100 }}
+        {{ result.artworkUrl600 }}
+        {{ result.collectionPrice }}
+        {{ result.trackPrice }}
+        {{ result.trackRentalPrice }}
+        {{ result.collectionHdPrice }}
+        {{ result.trackHdPrice }}
+        {{ result.trackHdRentalPrice }}
+        {{ result.releaseDate }}
+        {{ result.collectionExplicitness }}
+        {{ result.trackExplicitness }}
+        {{ result.trackCount }}
+        {{ result.country }}
+        {{ result.currency }}
+        {{ result.primaryGenreName }}
+        {{ result.contentAdvisoryRating }}
+        {{ result.genreIds }}
+        {{ result.genres }}
+    </div>
+</ng-container>
