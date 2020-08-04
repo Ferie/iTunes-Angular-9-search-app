@@ -1,3 +1,21 @@
+// Vendors
+@import "./assets/sass/vendor/reset";
+@import "./assets/sass/vendor/bootstrap-grid";
+
+// Mixins
+@import "./assets/sass/modules/mixins";
+
+// Typography
+@import "./assets/sass/typography/colors";
+@import "./assets/sass/typography/fonts";
+
+// Page setting
+@import "./assets/sass/base/body-settings";
+@import "./assets/sass/base/generals";
+
+// Components
+@import "./assets/sass/components/links";
+@import "./assets/sass/components/forms";
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -27,6 +45,3 @@ $ux-technical-test-theme: mat-light-theme($ux-technical-test-primary, $ux-techni
 @include angular-material-theme($ux-technical-test-theme);
 
 /* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

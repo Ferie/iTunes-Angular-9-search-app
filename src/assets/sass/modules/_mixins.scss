@@ -1,0 +1,383 @@
+// Mixins
+
+
+// Box-Sizing
+// --------------------------------------------------
+
+@mixin box-sizing($type: border-box) {
+    -webkit-box-sizing: $type; /* Chrome 4-9, Safari 3.1-5, iOS 3.2-4.3, Android 2.1-3, BlackBerry 7 */
+    -moz-box-sizing: $type; /* FireFox 2-28 */
+    box-sizing: $type; /* W3C - Chrome 10+, Safari 5.1+, FF 29+, IE 8+, Opera 10.1+, iOS 5+, Android 4+, BlackBerry 10+ */
+}
+
+// Opacity
+// --------------------------------------------------
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    // IE8 fix
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+
+
+// SVG Images
+// --------------------------------------------------
+
+@mixin svg-icons($image) {
+    $svgPath: '/assets/images/icons/' + $image + '.svg';
+    background-image: url($svgPath);
+    background-repeat: no-repeat;
+}
+
+
+// Box-Shadow
+// --------------------------------------------------
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow: inset $top $left $blur $color; /* Chrome 4-9, Safari 3.1-5, iOS 3.2-4.3, Android 2.1-3, BlackBerry 7 */
+        -moz-box-shadow: inset $top $left $blur $color; /* FireFox 3.5-3.6 */
+        box-shadow: inset $top $left $blur $color; /* W3C - Chrome 10+, Safari 5.1+, FF 4+, IE 9+, Opera 11.5+, iOS 5+, Android 4+, BlackBerry 10+ */
+    } @else {
+        -webkit-box-shadow: $top $left $blur $color; /* Chrome 4-9, Safari 3.1-5, iOS 3.2-4.3, Android 2.1-3, BlackBerry 7 */
+        -moz-box-shadow: $top $left $blur $color; /* FireFox 3.5-3.6 */
+        box-shadow: $top $left $blur $color; /* W3C - Chrome 10+, Safari 5.1+, FF 4+, IE 9+, Opera 11.5+, iOS 5+, Android 4+, BlackBerry 10+ */
+    }
+}
+
+@mixin box-shadow-defined($shadow) {
+    -webkit-box-shadow: $shadow; /* Chrome 4-9, Safari 3.1-5, iOS 3.2-4.3, Android 2.1-3, BlackBerry 7 */
+    -moz-box-shadow: $shadow; /* FireFox 3.5-3.6 */
+    box-shadow: $shadow; /* W3C - Chrome 10+, Safari 5.1+, FF 4+, IE 9+, Opera 11.5+, iOS 5+, Android 4+, BlackBerry 10+ */
+}
+
+
+// Appearance
+// --------------------------------------------------
+
+@mixin appearance($val) {
+    -webkit-appearance: $val;
+    -moz-appearance: $val;
+    appearance: $val;
+}
+
+
+// User Select
+// --------------------------------------------------
+
+@mixin user-select() {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Chrome, Edge, Opera and Firefox */
+}
+
+
+// Object Fit
+// --------------------------------------------------
+
+/**
+ * This mixin can be used to set the object-fit:
+ * @include object-fit(contain);
+ * or object-fit and object-position:
+ * @include object-fit(cover, top);
+ */
+@mixin object-fit($fit: fill, $position: null) {
+    -o-object-fit: $fit;
+    object-fit: $fit;
+
+    @if $position {
+        -o-object-position: $position;
+        object-position: $position;
+        font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+    } @else {
+        font-family: 'object-fit: #{$fit}';
+    }
+}
+
+
+// Flexbox
+// --------------------------------------------------
+
+@mixin flexbox {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+@mixin inline-flex {
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+@mixin flex-direction($value: row) {
+    @if $value==row-reverse {
+        -webkit-box-direction: reverse;
+        -webkit-box-orient: horizontal;
+        -moz-box-direction: reverse;
+        -moz-box-orient: horizontal;
+    }
+
+    @else if $value==column {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -moz-box-direction: normal;
+        -moz-box-orient: vertical;
+    }
+
+    @else if $value==column-reverse {
+        -webkit-box-direction: reverse;
+        -webkit-box-orient: vertical;
+        -moz-box-direction: reverse;
+        -moz-box-orient: vertical;
+    }
+
+    @else {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: horizontal;
+        -moz-box-direction: normal;
+        -moz-box-orient: horizontal;
+    }
+
+    -webkit-flex-direction: $value;
+    -ms-flex-direction: $value;
+    flex-direction: $value;
+}
+
+@mixin flex-wrap($value: nowrap) {
+    // No Webkit/FF Box fallback.
+    -webkit-flex-wrap: $value;
+
+    @if $value==nowrap {
+        -ms-flex-wrap: none;
+    }
+
+    @else {
+        -ms-flex-wrap: $value;
+    }
+
+    flex-wrap: $value;
+}
+
+@mixin flex-flow($values: (row nowrap)) {
+    // No Webkit/FF Box fallback.
+    -webkit-flex-flow: $values;
+    -ms-flex-flow: $values;
+    flex-flow: $values;
+}
+
+@mixin order($int: 0) {
+    -webkit-box-ordinal-group: $int + 1;
+    -moz-box-ordinal-group: $int + 1;
+    -webkit-order: $int;
+    -ms-flex-order: $int;
+    order: $int;
+}
+
+@mixin flex-grow($int: 1) {
+    -webkit-box-flex: $int;
+    -moz-box-flex: $int;
+    -webkit-flex-grow: $int;
+    -ms-flex: $int;
+    flex-grow: $int;
+}
+
+@mixin flex-shrink($int: 0) {
+    -webkit-flex-shrink: $int;
+    -moz-flex-shrink: $int;
+    -ms-flex: $int;
+    flex-shrink: $int;
+}
+
+@mixin flex-basis($value: auto) {
+    -webkit-flex-basis: $value;
+    flex-basis: $value;
+}
+
+@mixin flex($fg: 1, $fs: 0, $fb: auto) {
+    // Set a variable to be used by box-flex properties
+    $fg-boxflex: $fg;
+
+    // Box-Flex only supports a flex-grow value so lets grab the
+    // first item in the list and just return that.
+    @if type-of($fg)=='list' {
+        $fg-boxflex: nth($fg, 1);
+    }
+
+    -webkit-box: $fg-boxflex;
+    -moz-box: $fg-boxflex;
+    -webkit-flex: $fg $fs $fb;
+    -ms-flex: $fg $fs $fb;
+    flex: $fg $fs $fb;
+}
+
+@mixin justify-content($value: flex-start) {
+    @if $value==flex-start {
+        -webkit-box-pack: start;
+        -moz-box-pack: start;
+        -ms-flex-pack: start;
+    }
+
+    @else if $value==flex-end {
+        -webkit-box-pack: end;
+        -moz-box-pack: end;
+        -ms-flex-pack: end;
+    }
+
+    @else if $value==space-between {
+        -webkit-box-pack: justify;
+        -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+    }
+
+    @else if $value==space-around {
+        -ms-flex-pack: distribute;
+    }
+
+    @else {
+        -webkit-box-pack: $value;
+        -moz-box-pack: $value;
+        -ms-flex-pack: $value;
+    }
+
+    -webkit-justify-content: $value;
+    justify-content: $value;
+}
+
+@mixin align-items($value: stretch) {
+    @if $value==flex-start {
+        -webkit-box-align: start;
+        -moz-box-align: start;
+        -ms-flex-align: start;
+    }
+
+    @else if $value==flex-end {
+        -webkit-box-align: end;
+        -moz-box-align: end;
+        -ms-flex-align: end;
+    }
+
+    @else {
+        -webkit-box-align: $value;
+        -moz-box-align: $value;
+        -ms-flex-align: $value;
+    }
+
+    -webkit-align-items: $value;
+    align-items: $value;
+}
+
+@mixin align-self($value: auto) {
+    // No Webkit Box Fallback.
+    -webkit-align-self: $value;
+
+    @if $value==flex-start {
+        -ms-flex-item-align: start;
+    }
+
+    @else if $value==flex-end {
+        -ms-flex-item-align: end;
+    }
+
+    @else {
+        -ms-flex-item-align: $value;
+    }
+
+    align-self: $value;
+}
+
+@mixin align-content($value: stretch) {
+    // No Webkit Box Fallback.
+    -webkit-align-content: $value;
+
+    @if $value==flex-start {
+        -ms-flex-line-pack: start;
+    }
+
+    @else if $value==flex-end {
+        -ms-flex-line-pack: end;
+    }
+
+    @else {
+        -ms-flex-line-pack: $value;
+    }
+
+    align-content: $value;
+}
+
+
+// Display Grid
+// --------------------------------------------------
+
+// Ensure CSS grid works with IE 11 spec.
+// https://css-tricks.com/browser-compatibility-css-grid-layouts-simple-sass-mixins/
+// sass-lint:disable no-vendor-prefixes, no-duplicate-properties
+@mixin display-grid {
+    display: -ms-grid;
+    display: grid;
+}
+
+// $columns values should be delimited by a space
+@mixin grid-template-columns($columns...) {
+    -ms-grid-columns: $columns;
+    grid-template-columns: $columns;
+}
+
+// $rows values should be delimited by a space
+@mixin grid-template-rows($rows...) {
+    -ms-grid-rows: $rows;
+    grid-template-rows: $rows;
+}
+
+// Can be used in combination with above grid-template-X mixins.
+// These result in the same output:
+// @include grid-template-columns(10px grid-repeat(4, 20px) 30px);
+// @include grid-template-columns(10px 20px 20px 20px 20px 30px);
+@function grid-repeat($repeat, $stuff: 1fr) {
+    $list: ();
+
+    @for $i from 1 through $repeat {
+        $list: append($list, $stuff, space);
+    }
+
+    @return $list;
+}
+
+@mixin grid-column($col-start, $col-end) {
+    -ms-grid-column: $col-start;
+    -ms-grid-column-span: $col-end - $col-start;
+    grid-column: #{$col-start} / #{$col-end};
+}
+
+@mixin grid-row($row-start, $row-end) {
+    -ms-grid-row: $row-start;
+    -ms-grid-row-span: $row-end - $row-start;
+    grid-row: #{$row-start} / #{$row-end};
+}
+
+@mixin grid-align-self($value) {
+    -ms-grid-row-align: $value;
+    align-self: $value;
+}
+
+@mixin grid-justify-self($value) {
+    -ms-grid-column-align: $value;
+    justify-self: $value;
+}
+
+@mixin grid-child ($col-start, $col-end, $row-start, $row-end) {
+    -ms-grid-column: $col-start;
+    -ms-grid-column-span: $col-end - $col-start;
+    -ms-grid-row: $row-start;
+    -ms-grid-row-span: $row-end - $row-start;
+    grid-column: #{$col-start}/#{$col-end};
+    grid-row: #{$row-start}/#{$row-end};
+}
