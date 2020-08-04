@@ -6,12 +6,12 @@ import { HistoryComponent } from './history.component';
 const routes: Routes = [
     {
         path: '',
-        component: HistoryComponent,
-    },
+        component: HistoryComponent
+    }
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
-    exports: [],
+    exports: []
 })
 export class HistoryRoutingModule { }
