@@ -2,3 +2,8 @@
     margin: 0 auto;
     max-width: 400px;
 }
+
+/* Ovverride Angular Material stylings */
+::ng-deep .mat-form-field-wrapper {
+    padding: 0;
+}
