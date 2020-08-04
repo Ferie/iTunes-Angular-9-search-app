@@ -3,8 +3,10 @@ import { UxHeaderComponent } from './components/ux-header/ux-header.component';
 import { MatButtonModule, MatToolbarModule, MatInputModule, MatCardModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { GoBackComponent } from './components/go-back/go-back.component';
 
 const UX_COMPONENTS: any[] = [UxHeaderComponent];
+    // GoBackComponent
 
 const UX_MODULES: any[] = [
   MatButtonModule,

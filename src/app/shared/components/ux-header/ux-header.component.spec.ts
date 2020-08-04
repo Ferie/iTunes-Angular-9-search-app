@@ -4,23 +4,23 @@ import { UxHeaderComponent } from './ux-header.component';
 import { MatToolbarModule } from '@angular/material';
 
 describe('UxHeaderComponent', () => {
-  let component: UxHeaderComponent;
-  let fixture: ComponentFixture<UxHeaderComponent>;
+    let component: UxHeaderComponent;
+    let fixture: ComponentFixture<UxHeaderComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [UxHeaderComponent],
-      imports: [MatToolbarModule],
-    }).compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [UxHeaderComponent],
+            imports: [MatToolbarModule],
+        }).compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UxHeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(UxHeaderComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

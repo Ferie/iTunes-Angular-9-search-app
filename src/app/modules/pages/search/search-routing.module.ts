@@ -4,14 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { SearchComponent } from './search.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: SearchComponent,
-  },
+    {
+        path: '',
+        component: SearchComponent,
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [],
+    imports: [RouterModule.forChild(routes)],
+    exports: [],
 })
-export class SearchRoutingModule {}
+export class SearchRoutingModule { }

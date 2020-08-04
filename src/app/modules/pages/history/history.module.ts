@@ -6,7 +6,10 @@ import { HistoryRoutingModule } from './history-routing.module';
 import { HistoryComponent } from './history.component';
 
 @NgModule({
-  declarations: [HistoryComponent],
-  imports: [HistoryRoutingModule, SharedModule],
+    declarations: [HistoryComponent],
+    imports: [
+        HistoryRoutingModule,
+        SharedModule
+    ]
 })
-export class HistoryModule {}
+export class HistoryModule { }
