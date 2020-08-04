@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UxHeaderComponent } from './ux-header.component';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 describe('UxHeaderComponent', () => {
     let component: UxHeaderComponent;

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { UxHeaderComponent } from './components/ux-header/ux-header.component';
-import { MatButtonModule, MatToolbarModule, MatInputModule, MatCardModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { GoBackComponent } from './components/go-back/go-back.component';
