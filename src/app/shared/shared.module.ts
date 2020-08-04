@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { GoBackComponent } from './components/go-back/go-back.component';
+// import { GoBackComponent } from './components/go-back/go-back.component';
 
 const UX_COMPONENTS: any[] = [UxHeaderComponent];
     // GoBackComponent
