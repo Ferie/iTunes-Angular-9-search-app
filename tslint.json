@@ -101,5 +101,10 @@
             "allow-leading-underscore",
             "allow-pascal-case"
         ]
-    }
+    },
+    "indent": [
+        true,
+        "spaces",
+        4
+    ]
 }
