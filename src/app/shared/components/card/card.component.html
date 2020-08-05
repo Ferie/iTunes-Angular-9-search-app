@@ -8,15 +8,27 @@
 
         <section class="card__item--content">
             <header class="card__item--title">
-                <a *ngIf="result.artistName" class="link" href="{{ result.artistViewUrl }}">
+                <a
+                    *ngIf="result.artistName"
+                    class="link"
+                    href="{{ result.artistViewUrl }}"
+                >
                     {{ result.artistName }}
                 </a>
 
-                <a *ngIf="result.collectionName" class="link" href="{{ result.collectionViewUrl }}">
+                <a
+                    *ngIf="result.collectionName"
+                    class="link"
+                    href="{{ result.collectionViewUrl }}"
+                >
                     {{ result.collectionName }}
                 </a>
 
-                <a *ngIf="result.trackName" class="link" href="{{ result.trackViewUrl }}">
+                <a
+                    *ngIf="result.trackName"
+                    class="link"
+                    href="{{ result.trackViewUrl }}"
+                >
                     {{ result.trackName }}
                 </a>
             </header>
