@@ -25,41 +25,8 @@
     </mat-card-actions>
 </mat-card>
 
-<ng-container *ngFor="let result of results">
-    <div class="result">
-        {{ result.wrapperType }}
-        {{ result.kind }}
-        {{ result.artistId }}
-        {{ result.collectionId }}
-        {{ result.trackId }}
-        {{ result.artistName }}
-        {{ result.collectionName }}
-        {{ result.trackName }}
-        {{ result.collectionCensoredName }}
-        {{ result.trackCensoredName }}
-        {{ result.artistViewUrl }}
-        {{ result.collectionViewUrl }}
-        {{ result.feedUrl }}
-        {{ result.trackViewUrl }}
-        {{ result.artworkUrl30 }}
-        {{ result.artworkUrl60 }}
-        {{ result.artworkUrl100 }}
-        {{ result.artworkUrl600 }}
-        {{ result.collectionPrice }}
-        {{ result.trackPrice }}
-        {{ result.trackRentalPrice }}
-        {{ result.collectionHdPrice }}
-        {{ result.trackHdPrice }}
-        {{ result.trackHdRentalPrice }}
-        {{ result.releaseDate }}
-        {{ result.collectionExplicitness }}
-        {{ result.trackExplicitness }}
-        {{ result.trackCount }}
-        {{ result.country }}
-        {{ result.currency }}
-        {{ result.primaryGenreName }}
-        {{ result.contentAdvisoryRating }}
-        {{ result.genreIds }}
-        {{ result.genres }}
-    </div>
-</ng-container>
+<section class="result-grid">
+    <ng-container *ngFor="let result of results">
+        <certua-card [result]="result"></certua-card>
+    </ng-container>
+</section>
