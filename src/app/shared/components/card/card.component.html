@@ -1,0 +1,77 @@
+<article class="card">
+    <div
+        class="card__item--details"
+        (click)="goToDetails()"
+    >
+        <section
+            *ngIf="result.artworkUrl100"
+            class="card__item--image"
+            [ngStyle]="{ 'background-image': 'url(' + result.artworkUrl100 + ')' }"
+        ></section>
+
+        <section class="card__item--content">
+            <header class="card__item--title">
+                <a *ngIf="result.artistName" class="link" href="{{ result.artistViewUrl }}">
+                    {{ result.artistName }}
+                </a>
+
+                <a *ngIf="result.collectionName" class="link" href="{{ result.collectionViewUrl }}">
+                    {{ result.collectionName }}
+                </a>
+
+                <a *ngIf="result.trackName" class="link" href="{{ result.trackViewUrl }}">
+                    {{ result.trackName }}
+                </a>
+            </header>
+
+            <div *ngIf="result.releaseDate" class="card__item--small-notes">
+                ({{ result.releaseDate | date: 'yyyy' }})
+            </div>
+
+            <div *ngIf="result.primaryGenreName" class="card__item--small-notes">
+                {{ result.primaryGenreName }}
+            </div>
+
+            <div class="card__item--price">
+                <div *ngIf="result.collectionPrice" class="card__item--price">
+                    Buy the whole album for just {{ result.currency }} {{ result.collectionPrice }}
+                </div>
+
+                <div *ngIf="result.trackPrice" class="card__item--price">
+                    Buy the single track for just {{ result.currency }} {{ result.trackPrice }}
+                </div>
+
+                <div *ngIf="result.trackRentalPrice" class="card__item--price">
+                    Rent the single track for just {{ result.currency }} {{ result.trackRentalPrice }}
+                </div>
+
+                <div *ngIf="result.trackHdPrice" class="card__item--price">
+                    Buy HD movie for just {{ result.currency }} {{ result.trackHdPrice }}
+                </div>
+
+                <div *ngIf="result.trackHdRentalPrice" class="card__item--price">
+                    Rent HD movie for just {{ result.currency }} {{ result.trackHdRentalPrice }}
+                </div>
+
+                <div *ngIf="result.collectionHdPrice" class="card__item--price">
+                    Buy the HD movie collection for just {{ result.currency }} {{ result.collectionHdPrice }}
+                </div>
+            </div>
+
+            <footer
+                *ngIf="
+                    result.trackExplicitness === 'explicit'
+                    || result.trackExplicitness === 'explicit'
+                    || result.contentAdvisoryRating === 'explicit'
+                "
+                class="card__item--parental-advisory"
+            >
+                <img
+                    class="card__item--image"
+                    src="assets/images/parental-advisory.png"
+                    alt="Parental Advisory"
+                >
+            </footer>
+        </section>
+    </div>
+</article>

@@ -1,0 +1,58 @@
+@import '../../styles';
+
+$box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.15);
+$box-shadow-hover: 0 3px 11px 0 rgba(0, 0, 0, .55);
+
+.card {
+    @include user-select-mixin;
+    @include box-shadow-defined($box-shadow);
+    border: 1px solid $light-grey;
+    border-radius: 8px;
+
+    &:hover {
+        @include box-shadow-defined($box-shadow-hover);
+    }
+
+    &__item {
+        &--image {
+            background-position: center center;
+            background-repeat: no-repeat;
+            padding: 16px 0;
+            height: 100px;
+            width: 100%;
+        }
+
+        &--content {
+            padding: 16px;
+        }
+
+        &--title {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        &--small-notes {
+            font-size: 12px;
+            margin: 8px 0;
+            text-align: center;
+        }
+
+        &--price {
+            color: $blue-violet;
+            margin: 12px 0;
+        }
+
+        &--parental-advisory {
+            display: block;
+            font-size: 0;
+            text-align: center;
+            height: 100px;
+            width: 100%;
+        }
+    }
+}
+
+.link {
+    display: block;
+    text-align: center;
+}
