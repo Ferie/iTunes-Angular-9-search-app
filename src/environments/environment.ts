@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'https://www.metaweather.com/api'
+    apiUrl: 'https://itunes.apple.com/search?term='
 };
 
 /*

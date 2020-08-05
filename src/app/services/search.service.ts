@@ -19,7 +19,7 @@ export class SearchService {
         term = term.trim();
         // console.log('api url', this.apiUrl);
         return this.http.jsonp<ITunesSearchResults>(
-            'https://itunes.apple.com/search?term=' + term,
+            this.apiUrl + term,
             'callback'
         // ).pipe(
         //     catchError(this.handleError(error)) // then handle the error
