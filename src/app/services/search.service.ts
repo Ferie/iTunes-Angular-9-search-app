@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ITunesSearchResults } from '../interfaces/itunes-search-result.interface';
 
@@ -14,9 +15,16 @@ export class SearchService {
 
     constructor(private http: HttpClient) {}
 
-    public getITunesResults(term: string) {
+    public getITunesResults(term: string): Observable<ITunesSearchResults> {
+        term = term.trim();
         // console.log('api url', this.apiUrl);
-        return this.http.jsonp<ITunesSearchResults>('https://itunes.apple.com/search?term=' + term, 'callback');
+        return this.http.jsonp<ITunesSearchResults>(
+            'https://itunes.apple.com/search?term=' + term,
+            'callback'
+        // ).pipe(
+        //     catchError(this.handleError(error)) // then handle the error
+        );
+    }
 
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
