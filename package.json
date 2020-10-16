@@ -1,6 +1,6 @@
 {
-    "name": "ux-technical-test",
-    "version": "0.0.1",
+    "name": "itunes-angular-9-search-app",
+    "version": "0.1.0",
     "scripts": {
         "ng": "ng",
         "serve": "ng serve",
@@ -9,7 +9,6 @@
         "lint": "ng lint",
         "e2e": "ng e2e"
     },
-    "private": true,
     "dependencies": {
         "@angular/animations": "~9.1.12",
         "@angular/cdk": "~9.2.4",
