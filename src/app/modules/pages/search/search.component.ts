@@ -39,7 +39,6 @@ export class SearchComponent implements OnInit, OnDestroy {
         });
     }
 
-
     /**
      * Destroy component and subscriptions.
      */
