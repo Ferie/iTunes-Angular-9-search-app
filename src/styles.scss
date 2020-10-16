@@ -1,21 +1,21 @@
 // Vendors
-@import "./assets/sass/vendor/reset";
-@import "./assets/sass/vendor/bootstrap-grid";
+@import "./sass/vendor/reset";
+@import "./sass/vendor/bootstrap-grid";
 
 // Mixins
-@import "./assets/sass/modules/mixins";
+@import "./sass/modules/mixins";
 
 // Typography
-@import "./assets/sass/typography/colors";
-@import "./assets/sass/typography/fonts";
+@import "./sass/typography/colors";
+@import "./sass/typography/fonts";
 
 // Page setting
-@import "./assets/sass/base/body-settings";
-@import "./assets/sass/base/generals";
+@import "./sass/base/body-settings";
+@import "./sass/base/generals";
 
 // Components
-@import "./assets/sass/components/links";
-@import "./assets/sass/components/forms";
+@import "./sass/components/links";
+@import "./sass/components/forms";
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
